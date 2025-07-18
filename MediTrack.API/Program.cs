@@ -1,25 +1,31 @@
+using MediTrack.Persistence.Contexts;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Register EF Core
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Register Controllers + Swagger
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Use Swagger in Development
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// Middleware Pipeline
+app.UseHttpsRedirection(); // Redirect HTTP to HTTPS
 
-app.UseAuthorization();
+app.UseAuthorization();    // uthorization middleware (needs to come after authentication if you have it)
 
-app.MapControllers();
+app.MapControllers();      // Route requests to controllers
 
 app.Run();
