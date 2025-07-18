@@ -416,3 +416,19 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Additional from VisualStudio .gitignore template
+# EF Core Migrations Snapshots (optional)
+**/Migrations/*Snapshot.cs
+
+# dotnet user secrets (if using)
+secrets.json
+
+# JetBrains Rider
+.idea/
+
+# Temp files
+*.bak
+*.log
+*.tmp
+
