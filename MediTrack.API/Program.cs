@@ -1,3 +1,4 @@
+using MediTrack.Application.Common.Mapping;
 using MediTrack.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,6 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Register EF Core
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Register Mapping Profile
+builder.Services.AddAutoMapper(typeof(MappingProfiles).Assembly);
+
 
 // Register Controllers + Swagger
 builder.Services.AddControllers();
