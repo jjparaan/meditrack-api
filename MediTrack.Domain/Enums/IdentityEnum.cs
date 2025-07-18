@@ -9,7 +9,8 @@ namespace MediTrack.Domain.Enums
 {
     public enum Gender
     {
-        Unknown = 0,
+        [Display(Name = "Prefer not to say")]
+        PreferNotToSay = 0,
         Male = 1,
         Female = 2,
     }

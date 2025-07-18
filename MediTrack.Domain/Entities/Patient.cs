@@ -8,14 +8,8 @@ using MediTrack.Domain.Enums;
 
 namespace MediTrack.Domain.Entities
 {
-    public class Patient : AuditableBaseEntity
+    public class Patient : IdentityBaseEntity
     {
-        public string FullName { get; set; }
-        public DateTime BirthDate { get; set; }
-        public Gender Gender { get; set; } = Gender.Unknown;
-        public string ContactNumber { get; set; }
-        public string Address { get; set; }
-
         // Navigation property
         public ICollection<Appointment> Appointments { get; set; } = new List<Appointment>();
     }
