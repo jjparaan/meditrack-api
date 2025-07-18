@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MediTrack.Application\MediTrack.Application.csproj" />
+    <ProjectReference Include="..\MediTrack.Persistence\MediTrack.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
