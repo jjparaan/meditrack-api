@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MediTrack.Application.DTOs.Patient;
+using MediTrack.Application.DTOs.Patients;
 
 namespace MediTrack.Application.Interfaces.Services
 {

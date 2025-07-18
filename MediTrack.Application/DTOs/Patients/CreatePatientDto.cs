@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MediTrack.Domain.Enums;
 
-namespace MediTrack.Application.DTOs.Patient
+namespace MediTrack.Application.DTOs.Patients
 {
     public class CreatePatientDto
     {
