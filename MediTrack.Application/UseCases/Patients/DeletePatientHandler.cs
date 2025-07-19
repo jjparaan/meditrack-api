@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MediTrack.Application.Interfaces.Services;
+﻿using MediTrack.Application.Interfaces.Repositories;
 
 namespace MediTrack.Application.UseCases.Patients
 {
     public class DeletePatientHandler
     {
-        private readonly IPatientService _patientService;
+        private readonly IPatientRepository _patientRepository;
 
-        public DeletePatientHandler(IPatientService patientService)
+        public DeletePatientHandler(IPatientRepository patientRepository)
         {
-            _patientService = patientService;
+            _patientRepository = patientRepository;
         }
 
         public async Task<bool> HandleAsync(Guid id)
@@ -23,7 +18,7 @@ namespace MediTrack.Application.UseCases.Patients
                 throw new ArgumentNullException(nameof(id), "Cannot delete patient data without id");
             }
             // Validate the id here if necessary
-            bool result = await _patientService.DeleteAsync(id);
+            bool result = await _patientRepository.DeleteAsync(id);
             return result;
         }
     }

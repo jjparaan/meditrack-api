@@ -1,6 +1,6 @@
-﻿using MediTrack.Application.Interfaces.Services;
+﻿using MediTrack.Application.Interfaces.Repositories;
 using MediTrack.Application.UseCases.Patients;
-using MediTrack.Infrastructure.Services;
+using MediTrack.Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace MediTrack.Infrastructure
@@ -9,7 +9,7 @@ namespace MediTrack.Infrastructure
     {
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection services)
         {
-            services.AddScoped<IPatientService, PatientService>();
+            services.AddScoped<IPatientRepository, PatientRepository>();
             services.AddScoped<GetAllPatientHandler>();
             services.AddScoped<GetPatientByIdHandler>();
             services.AddScoped<CreatePatientHandler>();

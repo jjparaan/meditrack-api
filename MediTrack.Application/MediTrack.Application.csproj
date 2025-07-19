@@ -15,4 +15,8 @@
     <ProjectReference Include="..\MediTrack.Domain\MediTrack.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Interfaces\Services\" />
+  </ItemGroup>
+
 </Project>

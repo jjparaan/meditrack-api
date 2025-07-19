@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using MediTrack.Application.DTOs.Patients;
 
-namespace MediTrack.Application.Interfaces.Services
+namespace MediTrack.Application.Interfaces.Repositories
 {
-    public interface IPatientService
+    public interface IPatientRepository
     {
         Task<List<PatientDto>> GetAllAsync();
         Task<PatientDto> GetByIdAsync(Guid id);

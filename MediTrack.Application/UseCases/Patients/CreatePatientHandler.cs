@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MediTrack.Application.DTOs.Patients;
-using MediTrack.Application.Interfaces.Services;
+﻿using MediTrack.Application.DTOs.Patients;
+using MediTrack.Application.Interfaces.Repositories;
 
 namespace MediTrack.Application.UseCases.Patients
 {
     public class CreatePatientHandler
     {
-        private readonly IPatientService _patientService;
+        private readonly IPatientRepository _patientRepository;
 
-        public CreatePatientHandler(IPatientService patientService)
+        public CreatePatientHandler(IPatientRepository patientRepository)
         {
-            _patientService = patientService;
+            _patientRepository = patientRepository;
         }
 
         public async Task<Guid> HandleAsync(CreatePatientDto dto)
@@ -25,7 +20,7 @@ namespace MediTrack.Application.UseCases.Patients
             }
 
             // Validate the DTO here if necessary
-            var patientId = await _patientService.CreateAysnc(dto);
+            var patientId = await _patientRepository.CreateAysnc(dto);
             return patientId;
         }
     }

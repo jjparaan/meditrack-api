@@ -1,26 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MediTrack.Application.DTOs.Patients;
-using MediTrack.Application.Interfaces.Services;
+﻿using MediTrack.Application.DTOs.Patients;
+using MediTrack.Application.Interfaces.Repositories;
 
 namespace MediTrack.Application.UseCases.Patients
 {
     public class GetAllPatientHandler
     {
-        private readonly IPatientService _patientService;
+        private readonly IPatientRepository _patientRepository;
 
-        public GetAllPatientHandler(IPatientService patientService)
+        public GetAllPatientHandler(IPatientRepository patientRepository)
         {
-            _patientService = patientService;
+            _patientRepository = patientRepository;
         }
 
         public async Task<List<PatientDto>> HandleAsync()
         {
             // Fetch all patients asynchronously
-            var patients = await _patientService.GetAllAsync();
+            var patients = await _patientRepository.GetAllAsync();
             return patients;
         }
     }

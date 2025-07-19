@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using MediTrack.Application.DTOs.Patients;
-using MediTrack.Application.Interfaces.Services;
+using MediTrack.Application.Interfaces.Repositories;
 using MediTrack.Domain.Entities;
 using MediTrack.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 
-namespace MediTrack.Infrastructure.Services
+namespace MediTrack.Infrastructure.Repositories
 {
-    public class PatientService : IPatientService
+    public class PatientRepository : IPatientRepository
     {
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
 
-        public PatientService(ApplicationDbContext context, IMapper mapper)
+        public PatientRepository(ApplicationDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

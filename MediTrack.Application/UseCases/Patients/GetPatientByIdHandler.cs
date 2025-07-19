@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MediTrack.Application.DTOs.Patients;
-using MediTrack.Application.Interfaces.Services;
+﻿using MediTrack.Application.DTOs.Patients;
+using MediTrack.Application.Interfaces.Repositories;
 
 namespace MediTrack.Application.UseCases.Patients
 {
     public class GetPatientByIdHandler
     {
-        private readonly IPatientService _patientService;
+        private readonly IPatientRepository _patientRepository;
 
-        public GetPatientByIdHandler(IPatientService patientService)
+        public GetPatientByIdHandler(IPatientRepository patientRepository)
         {
-            _patientService = patientService;
+            _patientRepository = patientRepository;
         }
 
         public async Task<PatientDto> HandleAsync(Guid id)
@@ -24,7 +19,7 @@ namespace MediTrack.Application.UseCases.Patients
                 throw new ArgumentNullException(nameof(id), "Cannot retrieve patient data withoud id");
             }
 
-            PatientDto patient = await _patientService.GetByIdAsync(id);
+            PatientDto patient = await _patientRepository.GetByIdAsync(id);
             return patient;
         }
     }

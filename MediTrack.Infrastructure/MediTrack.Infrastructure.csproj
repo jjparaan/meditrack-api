@@ -15,4 +15,8 @@
     <ProjectReference Include="..\MediTrack.Persistence\MediTrack.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>
